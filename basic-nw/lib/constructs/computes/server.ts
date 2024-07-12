@@ -34,7 +34,10 @@ export class ec2Server extends Construct {
             instanceName: 'ec2_instance',
             vpc: vpc,
             instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.MICRO),
-            machineImage: new ec2.AmazonLinuxImage({ generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2}),
+            machineImage: ec2.MachineImage.latestAmazonLinux2023(
+                { cachedInContext: true }
+            ),
+            // machineImage: new ec2.AmazonLinuxImage({ generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2023}),
             vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC},
             ssmSessionPermissions: true,
             securityGroup: securityGroups.sshSg

@@ -21,12 +21,12 @@ export class BasicNwStack extends cdk.Stack {
       securityGroups: nw.vpc.securityGroups
     });
 
-    // ===================================================================
-    // basicDB: rds, redshift, dynamoDB
-    const rds = new dbConstruct(this, 'dbConst', {
-      vpc: nw.vpc.vpc,
-      securityGroups: nw.vpc.securityGroups 
-    })
+    // // ===================================================================
+    // // basicDB: rds, redshift, dynamoDB
+    // const rds = new dbConstruct(this, 'dbConst', {
+    //   vpc: nw.vpc.vpc,
+    //   securityGroups: nw.vpc.securityGroups 
+    // })
     // ===================================================================
     // CICDservice: codepipeline, codecommit, codestar, codebuild, codedeploy
   }

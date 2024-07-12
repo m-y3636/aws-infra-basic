@@ -52,6 +52,7 @@ export class Vpc extends Construct {
                 description: 'rdsProxySecurityGroup'
             })
         };
+
         this.securityGroups.sshSg.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(22));
         this.securityGroups.sshSg.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.icmpPing());
         this.securityGroups.sshSg.addEgressRule(ec2.Peer.anyIpv4(), ec2.Port.allTraffic());
